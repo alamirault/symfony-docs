@@ -1074,7 +1074,7 @@ unique string as the key of each service config:
 Explicitly Configuring Services and Arguments
 ---------------------------------------------
 
-:ref:`Load services automatically <service-container-services-load-example>`
+:ref:`Loading services automatically <service-container-services-load-example>`
 and :ref:`autowiring <services-autowire>` are optional. And even if you use them, there may be some
 cases where you want to manually wire a service. For example, suppose that you want
 to register *2* services for the ``SiteUpdateManager`` class - each with a different

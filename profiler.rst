@@ -110,8 +110,10 @@ need to create a custom data collector. Instead, use the built-in utilities to
     Consider using a professional profiler such as `Blackfire`_ to measure and
     analyze the execution of your application in detail.
 
-Enabling the Profiler programmatically
------------------------------------
+.. _enabling-the-profiler-conditionally:
+
+Enabling the Profiler Programmatically
+--------------------------------------
 
 Symfony Profiler can be enabled and disabled programmatically. You can use the ``enable()``
 and ``disable()`` methods of the :class:`Symfony\\Component\\HttpKernel\\Profiler\\Profiler`
