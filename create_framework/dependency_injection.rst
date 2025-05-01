@@ -10,7 +10,6 @@ to it::
     namespace Simplex;
 
     use Symfony\Component\EventDispatcher\EventDispatcher;
-    use Symfony\Component\HttpFoundation;
     use Symfony\Component\HttpFoundation\RequestStack;
     use Symfony\Component\HttpKernel;
     use Symfony\Component\Routing;
@@ -199,6 +198,7 @@ Now, here is how you can register a custom listener in the front controller::
 
     // ...
     use Simplex\StringResponseListener;
+    use Symfony\Component\DependencyInjection\Reference;
 
     $container->register('listener.string_response', StringResponseListener::class);
     $container->getDefinition('dispatcher')
@@ -217,7 +217,7 @@ These parameters can be used when defining object definitions. Let's make the
 charset configurable::
 
     // ...
-    $container->register('listener.response', HttpKernel\EventListener\ResponseListener::class)
+    $container->register('listener.response', Symfony\Component\HttpKernel\EventListener\ResponseListener::class)
         ->setArguments(['%charset%'])
     ;
 
@@ -230,7 +230,7 @@ Instead of relying on the convention that the routes are defined by the
 ``$routes`` variables, let's use a parameter again::
 
     // ...
-    $container->register('matcher', Routing\Matcher\UrlMatcher::class)
+    $container->register('matcher', Symfony\Component\Routing\Matcher\UrlMatcher::class)
         ->setArguments(['%routes%', new Reference('context')])
     ;
 
